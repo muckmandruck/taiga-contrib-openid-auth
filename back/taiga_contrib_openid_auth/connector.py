@@ -120,6 +120,10 @@ def login(access_code: str, token: str, redirect_uri: str, client_id: str = CLIE
                   "scope": CLIENT_SCOPE
                   }
         data = _post(url, params=params, headers=headers)
+
+        logging.warning('Token Data')
+    	logging.warning(data)
+
         return AuthInfo(access_token=data.get("access_token", None))
     else:
         return AuthInfo(access_token=token)
@@ -136,6 +140,7 @@ def get_user_profile(headers: dict = HEADERS):
     username = None
     fullname = None
 
+    logging.warning('User data')
     logging.warning(data)
 
     if data.get(USER_FIELD, None) != None :
@@ -155,7 +160,7 @@ def get_user_profile(headers: dict = HEADERS):
     
     if data.get(NAME_FIELD, None) != None:
         fullname = data.get(NAME_FIELD, None)
-    else fullname=username
+    else fullname = username
 
     user =  User(id=data.get(ID_FIELD, None),
                 username=username,
