@@ -17,6 +17,7 @@
 
 import requests
 import json
+import logging
 
 from collections import namedtuple
 from urllib.parse import urljoin
@@ -133,6 +134,8 @@ def get_user_profile(headers: dict = HEADERS):
     url = USER_URL
     data = _get(url, headers=headers)
     username = None
+
+    logging.warning(data)
 
     if data.get(USER_FIELD, None) != None :
         username = data.get(USER_FIELD, None)
