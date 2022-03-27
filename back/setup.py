@@ -11,7 +11,7 @@ setup(
     long_description = "",
     keywords = 'taiga, openid, auth, plugin',
     author = 'Robert Fletcher',
-    url = 'https://github.com/robrotheran/taiga-contrib-openid-auth',
+    url = 'https://github.com/muckmandruck/taiga-contrib-openid-auth',
     license = 'AGPL',
     include_package_data = True,
     packages = find_packages(),
