@@ -154,7 +154,7 @@ def get_user_profile(headers: dict = HEADERS):
         username = data.get("email", None)
     
     if data.get(NAME_FIELD, None) != None:
-        fullname = data.get(NAME_FIELD)
+        fullname = data.get(NAME_FIELD, None)
     else fullname=username
 
     user =  User(id=data.get(ID_FIELD, None),
