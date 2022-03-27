@@ -134,6 +134,7 @@ def get_user_profile(headers: dict = HEADERS):
     url = USER_URL
     data = _get(url, headers=headers)
     username = None
+    fullname = None
 
     logging.warning(data)
 
@@ -152,9 +153,13 @@ def get_user_profile(headers: dict = HEADERS):
     elif data.get("email", None) != None :
         username = data.get("email", None)
     
+    if data.get(NAME_FIELD, None) != None:
+        fullname = data.get(NAME_FIELD)
+    else fullname=username
+
     user =  User(id=data.get(ID_FIELD, None),
                 username=username,
-                full_name=data.get(NAME_FIELD, None),
+                full_name=fullname,
                 email=data.get(EMAIL_FIELD, None),
                 )
     return user
