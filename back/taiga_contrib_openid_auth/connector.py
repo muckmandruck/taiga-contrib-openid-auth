@@ -122,7 +122,7 @@ def login(access_code: str, token: str, redirect_uri: str, client_id: str = CLIE
         data = _post(url, params=params, headers=headers)
 
         logging.warning('Token Data')
-    	logging.warning(data)
+        logging.warning(data)
 
         return AuthInfo(access_token=data.get("access_token", None))
     else:
